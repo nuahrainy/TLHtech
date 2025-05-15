@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TLH Tech</title>
+    <link rel="stylesheet" href="trangchu.css">
+</head>
+
+<body>
+    <div class="search-bar">
+        <a href="trangchu.html" class="img">
+            <img src="logo.png" alt="Logo">
+        </a>
+        <input type="text" class="searchInput" placeholder="Tìm kiếm...">
+        <button onclick="searchArticles()">Tìm🔎</button>
+    </div>
+
+    <div id="sidebar" class="sidebar">
+        <div id="menuItems">
+            <a href="trangchu.html">Trang chủ</a>
+            <a href="tincongnghe.html">Tin công nghệ</a>
+            <a href="sosanh.html">So sánh</a>
+            <a href="danhgia.html">Đánh giá</a>
+            <a href="thitruong.html">Thị trường</a>
+        </div>
+    </div>
+    <button id="scrollTopBtn">↑</button>
+    <script src="sosanh.js"></script>>
+
+    <div class="main-content">
+        <a href="asus.html" class=" no-underline">
+            <div class="article">
+                <img src="trangchu1.jpg" alt="Bài viết 1" height="100px">
+                <h2>Laptop gaming mạnh nhất thế giới thời điểm hiện tại</h2>
+                <p>Asus ROG Strix Scar 18, giá 125 triệu đồng, là laptop gaming mạnh nhất với màn hình 2K, chip Core i9-13980HX, GPU RTX 4090 16 GB và RAM 64 GB.</p>
+            </div>
+        </a>
+
+        <a href="sssmartphone.html" class="no-underline">
+            <div class="article">
+                <img src="trang2.jpg" alt="Bài viết 2" height="100px">
+                <h2>So sánh Xiaomi 15 Ultra và S25 Ultra: Ngôi vương smartphone Android thuộc về ai?</h2>
+                <p>Xiaomi 15 Ultra và S25 Ultra đều được bán chính hãng tại Việt Nam và đều sở hữu những tính năng, công nghệ xịn sò nhất từ hai nhà sản xuất smartphone Android hàng đầu thế giới.</p>
+            </div>
+        </a>
+        <a href="ip16.html" class="no-underline">
+            <div class="article">
+                <img src="trangchu3.jpg" alt="Bài viết 3" height="100px">
+                <h2>Iphone 16 Pro Max có gì mới?</h2>
+                <p>Khám phá iPhone 16 Pro Max có gì mới với các tính năng đột phá đáng chú ý trong năm 2024. Từ thiết kế sang trọng, màn hình tinh tế,...</p>
+            </div>
+        </a>
+        <a href="1+_13t.html" class="no-underline">
+            <div class="article">
+                <img src="1+_13T.jpg" alt="Bài viết 4" height="100px">
+                <h2>OnePlus 13T gây ấn tượng với tỷ lệ phân bổ trọng lượng hoàn hảo 50:50
+                </h2>
+                <p>Điện thoại OnePlus 13T sắp ra mắt dự kiến sẽ có thiết kế cực kỳ cao cấp và tỷ lệ phân bổ trọng lượng hoàn hảo. Trong vài tuần t...</p>
+            </div>
+        </a>
+        <a href="ssrtx.html" class="no-underline">
+            <div class="article">
+                <img src="ssrtx1.jpg" alt="Bài viết 5" height="100px">
+                <h2>NVIDIA RTX 5070 Ti và RTX 5070 có gì mới? Giá bao nhiêu? Hiệu năng ra sao?</h2>
+                <p>NVIDIA RTX 5070 Ti và RTX 5070 có gì mới, có những nâng cấp gì đáng chú ý, giá bao nhiêu và liệu có đáng mua,... </p>
+            </div>
+        </a>
+    </div>
+
+    <div class="container ">
+        <div class="contact">
+            <div class="contact-info">
+                <h3>Thông Tin Liên Hệ</h3>
+                <a href="https://www.facebook.com/share/1HFvA8pn6L/" target="_blank" style="color: blue; text-decoration: none; font-weight: bold;">Huân Trần chuyên viên tư vấn</a>
+                <p>Điện thoại: 0336848120</p>
+                <p>Địa chỉ: 123 Công Nghệ, Hà Nội, Việt Nam</p>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 Bản quyền thuộc về TLH Tech.</p>
+        </footer>
+    </div>
+    <script>
+        function searchArticles() {
+            const keyword = document.querySelector(".searchInput").value.toLowerCase().trim();
+            const articles = document.querySelectorAll(".article");
+
+            // Nếu không có từ khóa nhập vào, yêu cầu người dùng nhập từ khóa
+            if (keyword === "") {
+                alert("Vui lòng nhập từ khóa tìm kiếm!");
+                return;
+            }
+
+            let hasResults = false;
+
+            articles.forEach(article => {
+                const titleElement = article.querySelector("h2");
+                const descriptionElement = article.querySelector("p"); // Mô tả có thể không phải lớp description
+
+                if (titleElement && descriptionElement) {
+                    const title = titleElement.textContent.toLowerCase();
+                    const description = descriptionElement.textContent.toLowerCase();
+
+                    // Kiểm tra nếu tiêu đề hoặc mô tả chứa từ khóa tìm kiếm
+                    if (title.includes(keyword) || description.includes(keyword)) {
+                        article.style.display = "block"; // Hiển thị bài viết
+                        hasResults = true;
+                    } else {
+                        article.style.display = "none"; // Ẩn bài viết không phù hợp
+                    }
+                }
+            });
+
+            // Nếu không tìm thấy kết quả
+            if (!hasResults) {
+                alert("Không tìm thấy bài viết nào phù hợp với từ khóa!");
+            }
+        }
+        document.getElementById("searchInput").addEventListener("keypress", function(e) {
+            if (e.key === "Enter") {
+                document.getElementById("searchBtn").click();
+            }
+        });
+    </script>
+</body>
+
+</html>

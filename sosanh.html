@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TLH Tech</title>
+    <link rel="stylesheet" href="thitruong.css">
+</head>
+
+<body>
+    <div class="search-bar">
+        <a href="trangchu.html" class="img">
+            <img src="logo.png" alt="Logo">
+        </a>
+        <input type="text" id="searchInput" placeholder="Tìm kiếm...">
+        <button id="searchBtn">Tìm🔎</button>
+
+    </div>
+    <div id="sidebar" class="sidebar">
+        <div id="menuItems">
+            <a href="trangchu.html">Trang chủ</a>
+            <a href="tincongnghe.html">Tin công nghệ</a>
+            <a href="sosanh.html">So sánh</a>
+            <a href="danhgia.html">Đánh giá</a>
+            <a href="thitruong.html">Thị trường</a>
+        </div>
+    </div>
+    <button id="scrollTopBtn">↑</button>
+    <script src="sosanh.js"></script>
+    <div class="main-content">
+        <div class="article">
+            <a href="ipss.html" class="no-underline">
+                <img src="so-sanh-iphone-va-samsung-1.webp" alt="Hình ảnh smartphone">
+                <div class="content">
+                    <h2>So sánh iPhone và Samsung: Điện thoại nào đáng sở hữu?</h2>
+                    <p class="description">Nhiều được đặt lên bàn cân so sánh iPhone và Samsung để hình dung được cái nào bền hơn, tốt hơn, chụp hình đẹp hơn. Bằng việc so sánh này, chúng ta có thể dễ dàng lựa chọn được điện thoại phù hợp với nhu cầu của mình. Để biết được
+                        iPhone và Samsung cái nào bền hơn, những điểm giống nhau và khác nhau giữa iPhone và Samsung. </p>
+
+            </a>
+                </div>
+        </div>
+
+        <div class="article">
+            <a href="sssmartphone.html" class="no-underline">
+                <img src="anh2.jpg" alt="Hình ảnh smartphone">
+                <div class="content">
+                    <h2>So sánh Xiaomi 15 Ultra và S25 Ultra: Ngôi vương smartphone Android thuộc về ai?</h2>
+                    <p class="description">Xiaomi 15 Ultra và S25 Ultra đều được bán chính hãng tại Việt Nam và đều sở hữu những tính năng, công nghệ xịn sò nhất từ hai nhà sản xuất smartphone Android hàng đầu thế giới.</p>
+            </a>
+            </div>
+        </div>
+       <div class="article">
+            <a href="asle.html" class="no-underline">
+                <img src="so-sanh-laptop-asus-va-lenovo-hang-nao-tot-hon-nen-mua-cua-hang-nao--11.jpg" alt="Hình ảnh smartphone">
+                <div class="content">
+                    <h2>So sánh laptop ASUS và Lenovo, hãng nào tốt hơn, nên mua của hãng nào?</h2>
+                    <p class="description">Nếu bạn đang tranh luận về việc nên chọn mua máy tính xách tay của ASUS hay Lenovo, tìm hiểu ngay bài so sánh laptop ASUS và Lenovo dưới đây để có những đánh giá khách quan liệu hãng nào tốt hơn và nên mua laptop của thương hiệu nào nhé!</p>
+            </a>
+            </div>
+    </div>
+    <div class="container">
+        <div class="contact">
+            <div class="contact-info">
+                <h3>Thông Tin Liên Hệ</h3>
+                <a href="https://www.facebook.com/share/1HFvA8pn6L/" target="_blank" style="color: blue; text-decoration: none; font-weight: bold;">Huân Trần chuyên viên tư vấn</a>
+                <p>Điện thoại: 0336848120</p>
+                <p>Địa chỉ: 123 Công Nghệ, Hà Nội, Việt Nam</p>
+            </div>
+
+            <footer>
+                <p>&copy; 2025 Bản quyền thuộc về TLH Tech.</p>
+            </footer>
+        </div>
+
+        <script>
+            document.getElementById("searchBtn").addEventListener("click", function() {
+                const keyword = document.getElementById("searchInput").value.toLowerCase();
+                const articles = document.querySelectorAll(".article");
+
+                articles.forEach(article => {
+                    const title = article.querySelector("h2").innerText.toLowerCase();
+                    const description = article.querySelector(".description").innerText.toLowerCase();
+
+                    if (title.includes(keyword) || description.includes(keyword)) {
+                        article.style.display = "block";
+                    } else {
+                        article.style.display = "none";
+                    }
+                });
+            });
+
+            // Cho phép nhấn Enter để tìm
+            document.getElementById("searchInput").addEventListener("keypress", function(e) {
+                if (e.key === "Enter") {
+                    document.getElementById("searchBtn").click();
+                }
+            });
+        </script>
+
+</body>
+
+</html>
